@@ -1,6 +1,6 @@
 # Project 2 - Show tell DevOps [CI/CD] 
 ## Purpose of this repository
-Demonstrate CI/CD with Github Action after executing a commit action in the repository
+Demonstrate CI/CD with Github Action using Prof Uli nodejs api files found here: https://github.com/u1i/nodejs-api.git
 
 
 ## TL:DR - Automated linter workflow using Github Actions [Super-Linter Workflow]
