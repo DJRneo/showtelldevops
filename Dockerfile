@@ -1,4 +1,4 @@
-From alpine
+FROM alpine
 
 MAINTAINER neojr1022@Gmail.com
 EXPOSE 8080
