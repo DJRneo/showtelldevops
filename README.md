@@ -11,12 +11,18 @@ Demonstrate CI/CD with Github Action after executing a commit action in the repo
 
 ## How the Super-Linter process work
 
-The super-linter identifies issues and reports them to the console output. If there are any errors, they will be displayed in the console output but will not be automatically amended by the system. A status output will display a failed pull request.
+The super-linter identifies issues and reports them to the console output:
+
+![Screenshot 2022-03-21 at 1 18 28 AM](https://user-images.githubusercontent.com/98994092/159174483-3a3a198d-b571-4ccd-aace-327002415ef4.png)
+
+If there are any errors, they will be displayed in the console output but will not be automatically amended by the system. A status output will display a failed pull request:
+
+![Screenshot 2022-03-21 at 1 18 52 AM](https://user-images.githubusercontent.com/98994092/159174491-75690f4a-a880-48dc-95eb-523858f7dc2e.png)
+
 
 After the errors in the files/scripts are fixed, the Super-Linter will automatically run again and display a green tick symbol to indicate that the files are structured correctly and aligned with best practices.
 
-![Screenshot 2022-03-21 at 12 19 20 AM](https://user-images.githubusercontent.com/98994092/159173378-47eb8d16-41d5-41e7-a089-0b56a5fcaf2f.png)
-
+![Screenshot 2022-03-21 at 2 05 53 AM](https://user-images.githubusercontent.com/98994092/159176226-a8ff67f0-26e9-4db0-95a1-e2954fcbb180.png)
 
 The design of the Super-Linter is currently to allow linting to occur in GitHub Actions as a part of continuous integration occurring on pull requests as the commits get pushed. 
 
@@ -28,23 +34,29 @@ Step 2: Add a yml file to the folder (e.g. superlinter.yml)
 Step 3: Key in the following code in the folder created in workflows folder:
 
 ```
-name: Super-Linter
+name: superlinter
 
-on: push
+on:
+  push:
+
+  pull_request:
+    branches: [master, main]
 
 jobs:
-  super-lint:
-    name: Lint code base
+  build:
+    name: superlinter
     runs-on: ubuntu-latest
     
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Run Super-Linter
+      - name: Checkout Code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: superlinter
         uses: github/super-linter@v4
         env:
           VALIDATE_ALL_CODEBASE: false
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
 ```
