@@ -1,5 +1,5 @@
-var express = require("express");
-var app = express();
+let express = require("express");
+let app = express();
 app.listen(8080, () => {
  console.log("Server running on port 3000");
 });
@@ -20,10 +20,10 @@ app.get("/fx", (req, res, next) => {
  rand1 = Math.floor(Math.random() * 90) + 10;
  rand2 = Math.floor(Math.random() * 90) + 10;
 
- var today = new Date();
- var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
- var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
- var dateTime = date+' '+time;
+ let today = new Date();
+ let date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+ let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+ let dateTime = date+' '+time;
 
  res.json({"sell": "1587." + rand1, "timestamp": dateTime, "buy": "1487." + rand2});
 });
