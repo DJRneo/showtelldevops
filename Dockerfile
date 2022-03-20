@@ -1,4 +1,3 @@
-
 FROM alpine
 MAINTAINER neojr1022@gmail.com
 EXPOSE 8080
