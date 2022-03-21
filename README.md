@@ -11,16 +11,16 @@ Demonstrate CI/CD with Github Action using Prof Uli nodejs api files found here:
 
 ## How the Super-Linter process work
 
-The super-linter identifies issues and reports them to the console output:
+(1) The super-linter identifies issues and reports them to the console output:
 
 ![Screenshot 2022-03-21 at 1 18 28 AM](https://user-images.githubusercontent.com/98994092/159174483-3a3a198d-b571-4ccd-aace-327002415ef4.png)
 
-If there are any errors, they will be displayed in the console output but will not be automatically amended by the system. A status output will display a failed pull request:
+(2) If there are any errors, they will be displayed in the console output but will not be automatically amended by the system. A status output will display a failed pull request:
 
 ![Screenshot 2022-03-21 at 1 18 52 AM](https://user-images.githubusercontent.com/98994092/159174491-75690f4a-a880-48dc-95eb-523858f7dc2e.png)
 
 
-After the errors in the files/scripts are fixed, the Super-Linter will automatically run again and display a green tick symbol to indicate that the files are structured correctly and aligned with best practices.
+(3) After the errors in the files/scripts are fixed, the Super-Linter will automatically run again and display a green tick symbol to indicate that the files are structured correctly and aligned with best practices.
 
 ![Screenshot 2022-03-21 at 2 05 53 AM](https://user-images.githubusercontent.com/98994092/159176226-a8ff67f0-26e9-4db0-95a1-e2954fcbb180.png)
 
@@ -60,3 +60,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
 ```
+# Credits
+* Github repository: https://github.com/github/super-linter
